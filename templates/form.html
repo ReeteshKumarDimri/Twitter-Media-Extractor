@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body
+{
+  background-color: rgb(14, 14, 20);
+  
+}
+.header
+{
+  background-color: rgb(255, 255, 255);
+  background-image: url("{{url_for('static',filename='wallpaperflare.com_wallpaper.jpg')}}");
+  padding: 30px;
+  border-radius: 25px;
+  text-align: center;
+}
+.search
+{
+  background-color: rgb(166, 176, 194);
+  padding: 18px;
+  color:rgb(19, 35, 43);
+  text-align: center;
+  font-family: fantasy;
+  font-style: bolder;
+  font-size: 20x;
+  font-weight: 900px;
+  border-radius: 25px;
+}
+.text
+{
+  font-size: 21px;
+}
+.button
+{
+  background-color: #22537c;
+  border: 2px;
+  border-radius: 20px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+}
+.searchBar
+{
+  border: 2px;
+  border-radius: 25px;
+  height: 25px;
+  border-color:rgb(166, 176, 194) ;
+}
+h1.center
+{
+  font-family: fantasy;
+  font-style: bold;
+  font-size: 60px;
+  font-weight: 900;
+  text-align: center;
+  color: rgb(229, 229, 248);
+  text-shadow: 2px 2px 5px rgb(108, 213, 245);
+}
+div.gallery {
+  margin: 5px;
+  border: 1px solid rgb(8, 7, 7);
+  border-radius: 20px;
+  float: left;
+  width: 280px;
+  height: 300px;
+}
+
+div.gallery:hover {
+  border: 1px solid rgb(0, 238, 255);
+}
+
+div.gallery img {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+div.search
+{
+  text-align: center;
+  font-size: 30;
+}
+
+#warn
+{
+  font-family: fantasy;
+  font-style: bold;
+  font-size: 60px;
+  font-weight: 900;
+  text-align: center;
+  color: rgb(214, 26, 67);
+  text-shadow: 2px 2px 5px rgb(156, 123, 123);
+}
+</style>
+</head>
+<body >
+<div class="header"><h1 class="center">TWITTER MEDIA EXTRACTOR</h1></div>
+<form action="http://localhost:5000/Fetch_Data" method="post">
+<div class = "search">
+  <label for="keyword" class="text">ENTER THE KEYWORD :</label>
+  <input type="text" id="keyword" name="q" class="searchBar" >
+  <button type="submit" class ="button">Search</button>
+
+</div>
+<div id = "warn">
+  {{warning}}
+</div>
+
+</form>
+
+{% for i in media%}
+<!--<img src= {{i}}>-->
+<div class="gallery">
+  <img src="{{i}}" width="1920" height="1080">
+</div>
+{% endfor %}
+
+
+
+
+
+
+
+</body>
+</html>
